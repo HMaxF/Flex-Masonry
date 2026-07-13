@@ -28,3 +28,6 @@ if the container has id="masonry_container"
   flex-direction: column;
   width: 0; 
 }
+
+
+![Flex Masonry screenshot](Flex-Masonry-Screenshot.png)
