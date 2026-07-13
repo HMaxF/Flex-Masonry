@@ -4,10 +4,12 @@ Diplay many images in various ratios, a mixed of square, portrait, tall, wide an
 
 # Requirements
 1. Ordering/displaying images from LEFT to RIGHT.
-2. Responsive, auto detect window resize and change column count.
+2. Fixed Width gallery
+   * Column width is a parameter.
+4. Responsive, auto detect window resize and change column count.
    * Using simple JS FLIP (First-Last-Invert-Play)
-4. Animate items moving to new position when column count changed.
-5. Small and no dependency, tiny and pure vanilla is the most delicious.
+5. Animate items moving to new position when column count changed.
+6. Small and no dependency, tiny and pure vanilla is the most delicious.
   * DO NOT add unnecesary code for future-proof, requirements are fixed !
 
 # Limitations
