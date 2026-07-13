@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Flexbox Masonry Grid</title>
+  <style>
+    :root {
+      --masonry-gap: 16px;
+      --item-bg: #f4f4f5;
+      --item-border-radius: 8px;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      box-sizing: border-box;
+      background:#ddd;
+    }
+
+    /* Masonry container holds columns side-by-side */
+    #masonry-flex {
+      display: flex;
+      gap: var(--masonry-gap); /* gap between columns */
+      width: 100%;
+      align-items: flex-start;
+    }
+    #masonry-flex > * {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--masonry-gap); /* gap between rows */
+      width: 0; /* Prevents wide content from breaking equal flex widths */
+    }
+
+    /* Item card styling */
+    #masonry-flex > * > * {
+      background: var(--item-bg);
+      border-radius: var(--item-border-radius);
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #333;
+
+      box-shadow:0 3px 8px rgba(0,0,0,.15);
+
+      will-change:transform;
+
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <div id="masonry-flex"></div>
+  </main>
+
+  <script>
+    /**
+     * Demo Setup: Generate dummy items with random heights
+     */
+    function generateDemoItems(grid, count = 20) {
+      if (!grid) return;
+
+      grid.innerHTML = '';
+      const fragment = document.createDocumentFragment();
+
+      for (let i = 0; i < count; i++) {
+        const item = document.createElement('div');
+        item.dataset.index = i; // Locks original order for resize reflows
+
+        // Assign random height between 120px and 350px
+        const randomHeight = Math.floor(Math.random() * 250) + 50;
+        item.style.height = `${randomHeight}px`;
+
+        item.innerHTML = `Item ${i + 1}<br>H:${randomHeight}px`;
+
+        fragment.appendChild(item);
+      }
+
+      grid.appendChild(fragment);
+    }
+
+    // Initialize on window load
+    let ele_masonry_container = null;
+    window.addEventListener('load', () => {
+      ele_masonry_container = document.getElementById('masonry-flex'); // get single object
+
+      // demo
+      generateDemoItems(ele_masonry_container, 24);
+
+      FlexMasonry.init(ele_masonry_container);
+    });
+
+  </script>
+
+  <script src="flex_masonry_v100.js"></script>
+
+</body>
+</html>
