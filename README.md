@@ -5,8 +5,9 @@ Diplay many images in various ratios, a mixed of square, portrait, tall, wide an
 # Requirements
 1. Ordering/displaying images from LEFT to RIGHT.
 2. Responsive, auto detect window resize and change column count.
-3. Animate items moving to new position when column count changed.
-4. Small and no dependency, tiny and pure vanilla is the most delicious.
+   * Using simple JS FLIP (First-Last-Invert-Play)
+4. Animate items moving to new position when column count changed.
+5. Small and no dependency, tiny and pure vanilla is the most delicious.
   * DO NOT add unnecesary code for future-proof, requirements are fixed !
 
 # Limitations
@@ -16,7 +17,7 @@ Diplay many images in various ratios, a mixed of square, portrait, tall, wide an
 # CSS
 Mandatory style:
 if the container has id="masonry_container"
-
+<pre>
 #masonry_container {
   display: flex;
   align-items: flex-start;
@@ -28,6 +29,6 @@ if the container has id="masonry_container"
   flex-direction: column;
   width: 0; 
 }
-
+</pre>
 
 ![Flex Masonry screenshot](Flex-Masonry-Screenshot.png)
